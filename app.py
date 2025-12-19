@@ -101,7 +101,7 @@ def logout():
 @app.route("/dashboard", methods=["GET", "POST"])
 def dashboard():
     email = session.get("email")
-    if "email" is None:
+    if "email" not in session:
         return redirect("/login")
     
     if request.method == "POST":
@@ -122,4 +122,5 @@ def get_db_connection():
 
 
 if __name__ == "__main__":
+
     app.run(debug=True)
