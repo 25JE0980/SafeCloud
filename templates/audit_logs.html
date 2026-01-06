@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Audit Logs</title>
+</head>
+<body>
+
+<h2>Audit Logs</h2>
+
+<table border="1" cellpadding="6">
+    <tr>
+     
+        <th>Email</th>
+        <th>User ID</th>
+        <th>Action</th>
+        <th>IP Address</th>
+        <th>Time (UTC)</th>
+    </tr>
+
+    {% for log in logs %}
+    <tr>
+        <td>{{ log.email }}</td>
+        
+        <td>{{ log.user_id }}</td>
+        <td>{{ log.action }}</td>
+        <td>{{ log.ip_address }}</td>
+        <td>{{ log.created_at }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<br>
+<a href="/dashboard">Back to Dashboard</a>
+
+</body>
+</html>
